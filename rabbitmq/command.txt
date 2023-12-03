@@ -1,0 +1,2 @@
+docker pull rabbitmq
+docker run -d -p 5030:15672 -p 5031:5672 --name rabbitmqcontainer rabbitmq:3-management
