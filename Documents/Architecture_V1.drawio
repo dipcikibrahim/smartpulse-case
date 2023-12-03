@@ -1,0 +1,63 @@
+<mxfile host="app.diagrams.net" modified="2023-12-03T12:05:57.192Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Uu6Nf4Cko7mIui4O5Qrq" version="22.1.5" type="device">
+  <diagram name="Page-1" id="iyPXEvSP8MVs31zQFToT">
+    <mxGraphModel dx="954" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.patternFillRect;fillStyle=diagGrid;step=5;fillStrokeWidth=0.2;fillStrokeColor=#dddddd;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="760" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-2" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/ionicons-fill-vol-2/512/logo-docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0f5eWezWo_BUU3gNvSpf-3" target="0f5eWezWo_BUU3gNvSpf-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-3" value="Modbus TCP&lt;br&gt;Slave Simulator Microservice" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.direct_data;whiteSpace=wrap;fontSize=10;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-4" value="3 H.R.&lt;br style=&quot;font-size: 10px;&quot;&gt;0x00 S.A.&lt;br style=&quot;font-size: 10px;&quot;&gt;1s R.U.P." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0f5eWezWo_BUU3gNvSpf-5" target="0f5eWezWo_BUU3gNvSpf-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="320" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-5" value="Modbus Reader&lt;br&gt;Microservice" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="220" y="170" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-6" value="1 H.R. Reader&lt;br&gt;Executes every 1s&lt;br&gt;1 Data -&amp;gt; 1 Exchange&lt;br&gt;With Timestamp" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="230" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0f5eWezWo_BUU3gNvSpf-9" target="0f5eWezWo_BUU3gNvSpf-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-9" value="RabbitMQ Microservice" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="270" y="360" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-11" value="3 Exchange for Flexible Output&lt;br&gt;3 Queue" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="270" y="460" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-12" value="RabbitMQ Queue Consumer Microservice" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="380" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-14" value="Prometheus" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="470" y="160" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-15" value="Graphana" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="640" y="290" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0f5eWezWo_BUU3gNvSpf-12" target="0f5eWezWo_BUU3gNvSpf-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0f5eWezWo_BUU3gNvSpf-14" target="0f5eWezWo_BUU3gNvSpf-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
