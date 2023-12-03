@@ -27,7 +27,7 @@ try:
     update_thread.start()
 
     # Start the Modbus TCP server
-    server = StartTcpServer(context, address=("localhost", 5020))
+    server = StartTcpServer(context, address=("0.0.0.0", 5020))
 except:
     print("Error occured while creating and starting the server!") #Send the log to logger.
 
