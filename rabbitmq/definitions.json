@@ -1,0 +1,57 @@
+{
+    "vhosts": [
+        {
+            "name": "/"
+        }
+    ],
+    "queues": [
+        {
+            "name": "modbus_data_queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        }
+    ],
+    "exchanges": [
+        {
+            "name": "modbus_data_exchange",
+            "vhost": "/",
+            "type": "direct",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        }
+    ],
+    "bindings": [
+        {
+            "source": "modbus_data_exchange",
+            "vhost": "/",
+            "destination": "modbus_data_queue",
+            "destination_type": "queue",
+            "routing_key": "",
+            "arguments": {}
+        }
+    ],
+    "users":[
+        {
+            "name": "smartpulse",
+            "password_hash": "AHfDyn3qVNGuYjZqNgbsGBLbxXIaHFSrQyQYCujjwIohAF8F",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": [
+                "administrator"
+            ],
+            "limits": {}
+        }
+    ],
+    "permissions": [
+        {
+            "user": "smartpulse",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        }
+    ]
+}
