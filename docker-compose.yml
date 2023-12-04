@@ -47,6 +47,10 @@ services:
     image: prom/prometheus
     volumes:
       - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - "./prometheus/prometheus-data/:/prometheus-data/"
+    command:
+      - "--storage.tsdb.path=/prometheus-data"
+      - "--config.file=/etc/prometheus/prometheus.yml"
     networks:
       - smartpulse-bridge
     ports:
