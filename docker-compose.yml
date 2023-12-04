@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+
+  modbus-simulator-server:
+    container_name: modbus-simulator-server
+    build:
+      context: ./modbus-simulator
+    ports:
+      - 5020:5020
+    networks:
+      - smartpulse-bridge
+
+  rabbitmq-server:
+    image: rabbitmq:management
+    container_name: rabbitmq-server
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+    networks:
+      - smartpulse-bridge
+    
+  modbus-reader:
+    container_name: modbus-reader
+    build:
+      context: ./modbus-reader
+    networks:
+      - smartpulse-bridge
+
+  rabbitmq-consumer:
+    container_name: rabbitmq-consumer
+    depends_on:
+      - rabbitmq-server
+    build:
+      context: ./rabbitmq-consumer
+    ports:
+      - 8001:8001
+    networks:
+      - smartpulse-bridge
+    restart: always
+
+  prometheus-server:
+    container_name: prometheus-server
+    image: prom/prometheus
+    volumes:
+      - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    networks:
+      - smartpulse-bridge
+    ports:
+      - 9090:9090
+
+  grafana-server:
+    container_name: grafana_server
+    image: grafana/grafana
+    depends_on:
+      - prometheus-server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning/
+    env_file:
+      - ./grafana/config.monitoring
+    networks:
+      - smartpulse-bridge
+      
+networks:
+  smartpulse-bridge:
+    driver: bridge
