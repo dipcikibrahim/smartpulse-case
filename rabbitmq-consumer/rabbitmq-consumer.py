@@ -1,11 +1,23 @@
 import pika
 from prometheus_client import start_http_server, Gauge
 import json
-import time
+import influxdb_client, os, time
+from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client.client.write_api import SYNCHRONOUS
+
 
 # Create a Prometheus gauge metric
 prometheus_metric = Gauge('rabbitmq_data', 'Data received from RabbitMQ', ['register'])
 prometheus_time_metric = Gauge('rabbitmq_data_time', 'Data received from RabbitMQ', ['time'])
+
+token = "RAlhlqCqwmGdeZj00UdyA5NAwDqZoJK6tufeoF6gN7W6ckhdjJ6bgreWgowS6JIAxQbDk4wAsgY_FN5SAV_qTw=="
+org = "sp"
+url = "http://influx-db:8086"
+
+write_client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
+bucket="spb"
+
+write_api = write_client.write_api(write_options=SYNCHRONOUS)
 
 # Function to process received messages and expose as Prometheus metrics
 def consume_and_publish():
@@ -33,6 +45,13 @@ def consume_and_publish():
                 for register, value in registers.items():
                     prometheus_metric.labels(register=register).set(value)
                     prometheus_time_metric.labels(time='timestamp').set(timestamp)
+                    # Influx Export
+                    point = (
+                        Point("registers")
+                        .tag("registerName", register)
+                        .field("data", value)
+                    )
+                    write_api.write(bucket=bucket, org="sp", record=point)
                     print(f"Received from RabbitMQ: Register {register}, Value {value}, Timestamp {timestamp}")
 
             except Exception as e:

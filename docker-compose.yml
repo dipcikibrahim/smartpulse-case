@@ -59,6 +59,8 @@ services:
   grafana-server:
     container_name: grafana_server
     image: grafana/grafana
+    links:
+      - influx-db
     depends_on:
       - prometheus-server
     ports:
@@ -68,6 +70,26 @@ services:
       - ./grafana/provisioning:/etc/grafana/provisioning/
     env_file:
       - ./grafana/config.monitoring
+    networks:
+      - smartpulse-bridge
+
+  influx-db:
+    container_name: influx-db
+    image: influxdb:latest
+    environment:
+      - INFLUXDB_DB=influx
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=smartpulse
+      - DOCKER_INFLUXDB_INIT_PASSWORD=WDb3#Je9h4q6l
+      - DOCKER_INFLUXDB_INIT_ORG=sp
+      - DOCKER_INFLUXDB_INIT_BUCKET=spb
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=RAlhlqCqwmGdeZj00UdyA5NAwDqZoJK6tufeoF6gN7W6ckhdjJ6bgreWgowS6JIAxQbDk4wAsgY_FN5SAV_qTw==
+    ports:
+      - 8086:8086
+    volumes:
+      - ./influx-db/influx-data:/var/lib/influxdb2
     networks:
       - smartpulse-bridge
       
