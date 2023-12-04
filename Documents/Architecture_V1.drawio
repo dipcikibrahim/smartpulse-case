@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-03T22:13:05.655Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="-zXiDPRDHx1VjlBAMmzW" version="22.1.5" type="device">
+<mxfile host="app.diagrams.net" modified="2023-12-04T10:12:33.897Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="K5bI2vYBLZRDdoKqMtWq" version="22.1.5" type="device">
   <diagram name="Page-1" id="iyPXEvSP8MVs31zQFToT">
     <mxGraphModel dx="954" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -39,7 +39,7 @@
         <mxCell id="0f5eWezWo_BUU3gNvSpf-9" value="RabbitMQ Microservice" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="270" y="360" width="100" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="0f5eWezWo_BUU3gNvSpf-11" value="3 Exchange for Flexible Output&lt;br&gt;3 Queue" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-11" value="1 Exchange for Flexible Output&lt;br&gt;1 Queue&lt;br&gt;Exchange(modbus_data_exchange)&lt;br&gt;Queue(modbus_data_queue)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="270" y="460" width="100" height="50" as="geometry" />
         </mxCell>
         <mxCell id="0f5eWezWo_BUU3gNvSpf-12" value="RabbitMQ Queue Consumer Microservice" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
@@ -69,6 +69,12 @@
           <mxGeometry x="0.1871" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-20" value="Modbus Data Exporter&lt;br&gt;3 Register values and Timestamp exported." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="440" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0f5eWezWo_BUU3gNvSpf-21" value="1 Dashboard&lt;br&gt;3 Graphics&lt;br&gt;1s Refresh Rate" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="350" width="100" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
